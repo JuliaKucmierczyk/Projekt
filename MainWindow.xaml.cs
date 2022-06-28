@@ -54,7 +54,40 @@ namespace ProjektZaliczeniowy2
         }
         private void ShowTabel(object sender, RoutedEventArgs e)
         {
+            if (DodajGrupe.Visibility == Visibility.Visible)
+            {
+                DodajGrupe.Visibility = Visibility.Hidden;
+                SBox.Visibility = Visibility.Hidden;
+            }
+        }
 
+        private void AddTeam(object sender, RoutedEventArgs e)
+        {
+            if (DodajGrupe.Visibility == Visibility.Hidden)
+            {
+                DodajGrupe.Visibility = Visibility.Visible;
+                SBox.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                druzyna.Visibility = Visibility.Visible;
+                SBox.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void DateUpdate(object sender, RoutedEventArgs e)
+        {
+            if (DodajGrupe.Visibility == Visibility.Hidden)
+            {
+                DodajGrupe.Visibility = Visibility.Visible;
+                druzyna.Visibility = Visibility.Hidden;
+                SBox.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                druzyna.Visibility = Visibility.Hidden;
+                SBox.Visibility = Visibility.Visible;
+            }
         }
     }
 }

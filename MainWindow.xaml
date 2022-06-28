@@ -16,9 +16,9 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="200"/>
-            <RowDefinition/>
+            <RowDefinition Height="220"/>
         </Grid.RowDefinitions>
-        <Button Content="Tabela rozgrywek sezonu 2020/21 Premier League" Margin="0,0,0,105" FontSize="28" Visibility="Visible" Grid.ColumnSpan="2" FontWeight="Bold" Click="ShowTabel" RenderTransformOrigin="0.5,0.5" ClickMode="Hover">
+        <Button  Content="Tabela rozgrywek sezonu 2020/21 Premier League" Margin="0,0,0,105" FontSize="28" Visibility="Visible" Grid.ColumnSpan="2" FontWeight="Bold" Click="ShowTabel" RenderTransformOrigin="0.5,0.5" ClickMode="Hover" Cursor="Arrow">
 
             <Button.BorderBrush>
                 <SolidColorBrush Color="#FF707070" Opacity="0"/>
@@ -27,7 +27,7 @@
                 <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
             </Button.Background>
         </Button>
-        <Button Content="Dodaj drużynę " Margin="0,95,0,0" FontSize="26" Visibility="Visible" FontFamily="Tahoma">
+        <Button Content="Dodaj drużynę " Margin="0,95,0,0" FontSize="26" Visibility="Visible" FontFamily="Tahoma"  ClickMode="Press" Click="AddTeam">
             <Button.BorderBrush>
                 <SolidColorBrush Color="#FF707070" Opacity="0"/>
             </Button.BorderBrush>
@@ -35,7 +35,7 @@
                 <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
             </Button.Background>
         </Button>
-        <Button Content="Zaktualizuj dane" Margin="0,95,0,0" FontSize="26" Visibility="Visible" Grid.Column="1" FontFamily="Tahoma">
+        <Button Content="Zaktualizuj dane" Margin="0,95,0,0" FontSize="26" Visibility="Visible" Grid.Column="1" FontFamily="Tahoma"  ClickMode="Press" Click="DateUpdate">
             <Button.BorderBrush>
                 <SolidColorBrush Color="#FF707070" Opacity="0"/>
             </Button.BorderBrush>
@@ -43,27 +43,32 @@
                 <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
             </Button.Background>
         </Button>
-    
-        <TextBox Grid.Row="1" Margin="44,40,24,135" x:Name="druzyna"/>
-        <ComboBox Margin="44,104,24,83" Grid.Row="1" />
-        <TextBox Grid.Row="1" Margin="376,40,294,135" Grid.ColumnSpan="2" x:Name="punkty" />
-        <TextBox Grid.Row="1" Margin="106,40,176,135" Grid.Column="1" x:Name="mecze"/>
-        <TextBox Grid.Row="1" Margin="224,40,131,135" Grid.Column="1"  x:Name="w"/>
-        <TextBox Grid.Row="1" Margin="269,40,87,135" Grid.Column="1"  x:Name="r"/>
-        <TextBox Grid.Row="1" Margin="313,40,42,135" Grid.Column="1" x:Name="p" />
+        <Grid x:Name="DodajGrupe" Grid.ColumnSpan="2" Margin="44,0,65,130" Grid.Row="1" Visibility="Hidden">
+
+            <TextBox Margin="0,40,359,0" x:Name="druzyna" FontSize="26" />
+            <TextBox Margin="367,40,0,0" x:Name="punkty" AutomationProperties.HelpText="sda" HorizontalAlignment="Left" Width="92" FontSize="26" />
+            <TextBox Margin="464,40,0,0" x:Name="mecze" HorizontalAlignment="Left" Width="92" FontSize="26"/>
+            <TextBox Margin="561,40,0,0"  x:Name="w" HorizontalAlignment="Left" Width="40" FontSize="26"/>
+            <TextBox Margin="606,40,0,0"  x:Name="r" HorizontalAlignment="Left" Width="40" FontSize="26"/>
+            <TextBox Margin="651,40,0,0" x:Name="p" HorizontalAlignment="Left" Width="40" FontSize="26" />
 
 
 
 
-        <TextBlock HorizontalAlignment="Left" Height="40" Margin="44,0,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Drużyna" VerticalAlignment="Top" Width="332" TextAlignment="Left" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Height="40" Margin="376,0,0,0" TextWrapping="Wrap" Text="Punkty" VerticalAlignment="Top" Width="130" TextAlignment="Center" Grid.Row="1" FontSize="18" Grid.ColumnSpan="2"/>
-        <TextBlock HorizontalAlignment="Left" Height="40" Margin="106,0,0,0" TextWrapping="Wrap" Text="Mecze" VerticalAlignment="Top" Width="118" Grid.Row="1" TextAlignment="Center" FontSize="18" Grid.Column="1"/>
-        <TextBlock HorizontalAlignment="Left" Height="40" Grid.Row="1" TextWrapping="Wrap" Text="W" VerticalAlignment="Top" Width="45" Grid.Column="2" RenderTransformOrigin="0.535,0.608" TextAlignment="Center" FontSize="18" Margin="224,0,0,0"/>
-        <TextBlock HorizontalAlignment="Left" Height="40" Margin="313,0,0,0" TextWrapping="Wrap" Text="P" VerticalAlignment="Top" Width="45" Grid.Column="2" TextAlignment="Center" Grid.Row="1" FontSize="18" />
-        <TextBlock HorizontalAlignment="Left" Height="40" Margin="269,0,0,0" Grid.Row="1" TextWrapping="Wrap" Text="R" VerticalAlignment="Top" Width="44" Grid.Column="2" RenderTransformOrigin="2.632,0.456" TextAlignment="Center" FontSize="18"/>
+            <TextBlock HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" Text="Drużyna" VerticalAlignment="Top" Width="356" TextAlignment="Left" FontSize="22" FontWeight="Normal" FontStyle="Italic" FontStretch="SemiExpanded" LineHeight="48"/>
+            <TextBlock HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" Text="Punkty" VerticalAlignment="Top" Width="92" TextAlignment="Center" FontSize="22" Margin="367,0,0,0" FontWeight="Normal" FontStyle="Italic" FontStretch="SemiExpanded"/>
+            <TextBlock HorizontalAlignment="Left" Height="40" Margin="464,1,0,0" TextWrapping="Wrap" Text="Mecze" VerticalAlignment="Top" Width="92" TextAlignment="Center" FontSize="22" FontWeight="Normal" FontStyle="Italic" FontStretch="SemiExpanded"/>
+            <TextBlock HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" Text="W" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.535,0.608" TextAlignment="Center" FontSize="22" Margin="561,0,0,0" FontWeight="Normal" FontStyle="Italic" FontStretch="SemiExpanded"/>
+            <TextBlock HorizontalAlignment="Left" Height="40" Margin="651,1,0,0" TextWrapping="Wrap" Text="P" VerticalAlignment="Top" Width="40" TextAlignment="Center" FontSize="22" FontWeight="Normal" FontStyle="Italic" FontStretch="SemiExpanded" />
+            <TextBlock HorizontalAlignment="Left" Height="40" Margin="606,1,0,0" TextWrapping="Wrap" Text="R" VerticalAlignment="Top" Width="40" RenderTransformOrigin="2.632,0.456" TextAlignment="Center" FontSize="22" FontWeight="Normal" FontStyle="Italic" FontStretch="SemiExpanded"/>
 
+
+
+        </Grid>
+        <ComboBox Margin="44,40,24,130" Grid.Row="1" Visibility="Hidden" x:Name="SBox"/>
 
 
 
     </Grid>
+
 </Window>
